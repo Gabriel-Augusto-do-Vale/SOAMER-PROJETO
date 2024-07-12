@@ -1,0 +1,40 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Solda</title>
+</head>
+
+<body>
+    <div class="ordem-container">
+        <h2 style="margin-bottom: 20px;">Solda</h2>
+        <div style="font-size: 18px;">O que deve ser produzido</div>
+        <div style="font-size: 18px;">BOCAL DUPLO POLIDA PARA CHEVROLET TRACKER</div>
+        <img src="tracker.jpg" alt="tracker" style="width: 90%; height: auto;">
+
+        <label for="situacao">Relatar situação do setor:</label>
+        <select id="situacao" name="situacao" style="width: 200px;">
+            <option value="problema1">Acidente</option>
+            <option value="problema2">Linha parada</option>
+            <option value="problema3">Excesso de peças</option>
+            <option value="produzindo">Produzindo</option>
+        </select>
+        <button class="button" onclick="problema()">Confirmar</button>
+        
+
+        <button class="voltar" onclick="dashboard()">Voltar</button>
+        <button class="voltar" onclick="funcao()">Sair dessa função</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function problema() {
+            var situacaoSelecionada = document.getElementById("situacao").value;
+            localStorage.setItem("situacaosolda", situacaoSelecionada);
+            alert("Situação atualizada: " + situacaoSelecionada);
+        }
+    </script>
+</body>
+
+</html>

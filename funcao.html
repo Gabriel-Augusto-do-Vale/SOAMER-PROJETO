@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nova Ordem de Produção</title>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Função</h2>
+        <label for="funcao">Selecione qual será sua função no dia de hoje:</label>
+        <select id="funcao" name="funcao" style="width: 200px;">
+            <option value="seleciona_corte">Corte</option>
+            <option value="seleciona_molde">Modelagem</option>
+            <option value="seleciona_solda">Solda</option>
+            <option value="seleciona_polimento">Polimento</option>
+            <option value="seleciona_limpeza">Limpeza</option>
+            <option value="seleciona_embalagem">Embalagem</option>
+            <option value="seleciona_furacao">Furação</option>
+        </select>
+
+        <button class="button" onclick="confirmarEscolha()">Confirmar</button>
+
+        <button class="voltar" onclick="dashboard()">Voltar</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

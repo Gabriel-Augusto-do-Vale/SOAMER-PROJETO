@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Estatisticas</title>
+</head>
+
+<body>
+    <script>
+        function changeImage() {
+        var selectedEmployee = document.getElementById("employeeSelector").value;
+        var imageElement = document.getElementById("employeeImage");
+    
+        switch (selectedEmployee) {
+            case "camila":
+                imageElement.src = "camila1.jpg";
+                break;
+            case "gabriel":
+                imageElement.src = "gabriel1.jpg";
+                break;
+            case "mateus":
+                imageElement.src = "mateus1.jpg";
+                break;
+            case "solon":
+                imageElement.src = "solon1.jpg";
+                break;
+            case "carlos":
+                imageElement.src = "carlos1.jpg";
+                break;
+            case "davi":
+                imageElement.src = "davi1.jpg";
+                break;
+            default:
+                imageElement.src = "linha.jpg";
+                break;
+        }
+    }
+    </script>
+
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Estatisticas de funcionários</h2>
+        
+        <label for="employeeSelector">Estatísticas de:</label>
+        <select id="employeeSelector" name="employeeSelector" onchange="changeImage()">
+            <option value="camila">Camila</option>
+            <option value="gabriel">Gabriel</option>
+            <option value="mateus">Mateus</option>
+            <option value="solon">Solon</option>
+            <option value="carlos">Carlos</option>
+            <option value="davi">Davi</option>
+        </select>
+
+        
+        <img id="employeeImage" src="" alt="Imagem do Funcionário" style="width: 100%; height: auto;">
+        
+        <button class="voltar" onclick="estatistica()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

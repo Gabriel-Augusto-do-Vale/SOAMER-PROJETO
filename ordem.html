@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nova Ordem de Produção</title>
+</head>
+<body>
+    <div class="ordem-container">
+        <h2 style="margin-bottom: 20px;">Nova Ordem de Produção</h2>
+        <form>
+            <label for="ponteira">Selecione qual ponteira será produzida nesse lote:</label>
+            <select id="ponteira" name="ponteira">
+                <option value="bocal_duplo_polida_chevrolet_tracker">BOCAL DUPLO POLIDA PARA CHEVROLET TRACKER</option>
+                <option value="bocal_duplo_toyota_corolla_cross">BOCAL DUPLO PARA TOYOTA COROLLA CROSS</option>
+                <option value="bocal_unico_polida_jeep_compass_diesel">BOCAL ÚNICO POLIDA PARA JEEP COMPASS DIESEL</option>
+                <option value="bocal_unico_polida_honda_new_city_sedan">BOCAL ÚNICO POLIDA PARA HONDA NEW CITY SEDAN</option>
+            </select>
+        
+            <label for="quantidade">Selecione a quantidade de ponteiras que serão produzidas no lote:</label>
+            <select id="quantidade" name="quantidade">
+                
+            </select>
+        
+            <button type="button" onclick="confirmarOrdem()" class="voltar">Confirmar</button>
+        </form>
+        
+        <script>
+            var quantidadeSelect = document.getElementById("quantidade");
+            for (var i = 1; i <= 30; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                quantidadeSelect.add(option);
+            }
+
+            var ponteiraArmazenada = localStorage.getItem("ponteiraProducao");
+            var quantidadeArmazenada = localStorage.getItem("quantidadeProducao");
+
+            
+        </script>
+
+</form>
+
+        <button class="voltar" onclick="voltarParaDashboard()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+           color: #ffffff;
+        }
+ 
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 200%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 50%;
+            height: 20px;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            position: absolute;
+            top: calc(57.5%); 
+            left: 30%; 
+            transform: translateX(-28%);
+        }
+
+        .progress-filled {
+            height: 100%;
+            width: 35%;
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Linha de Produção</h2>
+        <p>Lotes em produção:</p>
+        <p>1. 15 BOCAL ÚNICO POLIDA PARA VOLKSWAGEN T-CROSS</p>
+        
+        <div class="progress-bar">
+            <div class="progress-filled"></div>
+        </div>
+
+        <div class="linha-superior">
+            <div class="quadrado corte" id="corteQuadrado">Corte</div>
+            <div class="quadrado modelagem" id="modelagemQuadrado">Modelagem</div>
+            <div class="quadrado furacao" id="furacaoQuadrado">Furação</div>
+            <div class="quadrado solda" id="soldaQuadrado">Solda</div>
+            <div class="quadrado polimento-remocao" id="P1Quadrado">Pol. Sol.</div>
+        </div>
+
+        <div class="linha-inferior">
+            <div class="quadrado polimento-interno" id="P2Quadrado">Pol. Int.</div>
+            <div class="quadrado polimento-externo" id="P3Quadrado">Pol. Ext.</div>
+            <div class="quadrado limpeza" id="limpezaQuadrado">Limpeza</div>
+            <div class="quadrado embalagem" id="embalagemQuadrado">Embalagem</div>
+        </div>
+
+        <div class="percentual">35%</div>
+
+        <button class="voltar" onclick="voltarParaDashboard()">Voltar</button>
+        <button class="voltar" onclick="irParaEspera()">Visualizar próximos lotes</button>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaoProducao");
+    var corteQuadrado = document.getElementById("corteQuadrado");
+
+    // Define a cor do quadrado "corte" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": // Acidente
+            corteQuadrado.style.backgroundColor = "#e94560"; // Vermelho
+            break;
+        case "problema2": // Linha parada
+            corteQuadrado.style.backgroundColor = "#ffbf00"; // Amarelo
+            break;
+        case "problema3": // Excesso de peças
+            corteQuadrado.style.backgroundColor = "#8a2be2"; // Roxo
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00"; // Verde
+            break;
+        default:
+            // Cor padrão ou lógica adicional se necessário
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaomodelagem");
+    var corteQuadrado = document.getElementById("modelagemQuadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaosolda");
+    var corteQuadrado = document.getElementById("soldaQuadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaofuracao");
+    var corteQuadrado = document.getElementById("furacaoQuadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaoembalagem");
+    var corteQuadrado = document.getElementById("embalagemQuadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaolimpeza");
+    var corteQuadrado = document.getElementById("limpezaQuadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaoP1");
+    var corteQuadrado = document.getElementById("P1Quadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaoP2");
+    var corteQuadrado = document.getElementById("P2Quadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var situacaoArmazenada = localStorage.getItem("situacaoP3");
+    var corteQuadrado = document.getElementById("P3Quadrado");
+
+    // Define a cor do quadrado "Modelagem" de acordo com a situação armazenada
+    switch (situacaoArmazenada) {
+        case "problema1": 
+            corteQuadrado.style.backgroundColor = "#e94560"; 
+            break;
+        case "problema2": 
+            corteQuadrado.style.backgroundColor = "#ffbf00"; 
+            break;
+        case "problema3": 
+            corteQuadrado.style.backgroundColor = "#8a2be2";
+            break;
+        case "produzindo":
+            corteQuadrado.style.backgroundColor = "#00cc00";
+            break;
+        default:
+    }
+});
+
+
+
+
+    </script>
+    
+</body>
+</html>

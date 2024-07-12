@@ -1,0 +1,1075 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tela de Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="userType">Escolha o tipo de usuário:</label>
+            <select id="userType" name="userType">
+                <option value="gestor">Gestor</option>
+                <option value="funcionario">Funcionário</option>
+            </select>
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="login()">Entrar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+dashboard.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard do Gestor</title>
+</head>
+<body class="dashboard">
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="abrirOrdemPage()">Ordem de Produção</a></li>
+                    <li><a href="linha_de_producao.html">Linha de Produção</a></li>
+                    <li><a href="#" onclick="historico()">Histórico</a></li>
+                    <li><a href="#" onclick="estatistica()">Estatísticas</a></li>
+                    <li><a href="#">Mensagens</a></li>
+                    <li><a href="#" class="logout">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content" style="font-size: 25px;">
+            <h2 style="font-size: 24px;">Tela Inicial</h2>
+            <div style="font-size: 18px;">Nome de usuário: Hélio</div>
+            <img src="cracha.png" alt="cracha" style="width: 40%; height: auto;">
+
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+dashboard_funcionario.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard do Funcionário</title>
+</head>
+<body class="dashboard">
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#">Função</a></li>
+                    <li><a href="#">Mensagens</a></li>
+                    <li><a href="#" class="logout">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <h2>Conteúdo do Dashboard do Funcionário</h2>
+            <!-- Adicione aqui o conteúdo do dashboard do funcionário -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+ordem.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nova Ordem de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460; /* Fundo azul escuro conforme solicitado */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff; /* Texto branco conforme solicitado */
+        }
+
+        .ordem-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff; /* Fundo branco conforme solicitado */
+            color: #1a1a2e; /* Texto azul escuro para melhor contraste */
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460; /* Fundo azul escuro conforme solicitado */
+            color: #ffffff;
+            padding: 10px; /* Tamanho do botão ajustado */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e; /* Tonalidade mais escura ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="ordem-container">
+        <h2 style="margin-bottom: 20px;">Nova Ordem de Produção</h2>
+        <form>
+            <label for="ponteira">Selecione qual ponteira será produzida nesse lote:</label>
+            <select id="ponteira" name="ponteira">
+                <option value="bocal_duplo_polida_chevrolet_tracker">BOCAL DUPLO POLIDA PARA CHEVROLET TRACKER</option>
+                <option value="bocal_duplo_toyota_corolla_cross">BOCAL DUPLO PARA TOYOTA COROLLA CROSS</option>
+                <option value="bocal_unico_polida_jeep_compass_diesel">BOCAL ÚNICO POLIDA PARA JEEP COMPASS DIESEL</option>
+                <option value="bocal_unico_polida_honda_new_city_sedan">BOCAL ÚNICO POLIDA PARA HONDA NEW CITY SEDAN</option>
+            </select>
+        
+            <label for="quantidade">Selecione a quantidade de ponteiras que serão produzidas no lote:</label>
+            <select id="quantidade" name="quantidade">
+                <!-- Adiciona números de 1 a 30 em ordem usando JavaScript -->
+            </select>
+        
+            <button type="button" onclick="confirmarOrdem()" class="voltar">Confirmar</button>
+        </form>
+        
+        <script>
+            // Adiciona números de 1 a 30 na segunda caixa de seleção
+            var quantidadeSelect = document.getElementById("quantidade");
+            for (var i = 1; i <= 30; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                quantidadeSelect.add(option);
+            }
+        </script>
+
+</form>
+
+        <button class="voltar" onclick="voltarParaDashboard()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<script src="script.js"></script>
+
+</html>
+
+----------------------------------------------------------------------------------------
+linha_de_produção.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 200%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 50%;
+            height: 20px;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            position: absolute;
+            top: calc(74.5%); /* Posiciona a barra 20px abaixo do final do contêiner */
+            left: 28%; /* Posiciona a barra no centro horizontalmente */
+            transform: translateX(-28%);
+        }
+
+        .progress-filled {
+            height: 100%;
+            width: 35%;
+            background-color: #0c2c4e;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Linha de Produção</h2>
+        <!-- Conteúdo específico da linha de produção pode ser adicionado aqui -->
+        <p>Ponteira que está sendo produzida:</p>
+        <p>BOCAL DUPLO POLIDA PARA CHEVROLET TRACKER</p>
+        <p>Quantidade que está sendo produzida: 20</p>
+
+        <!-- Barra de Progresso -->
+        <div class="progress-bar">
+            <div class="progress-filled"></div>
+        </div>
+
+        <img src="linha.jpg" alt="mapa" style="width: 100%; height: auto;">
+
+        <p>35%</p>
+
+        <button class="voltar" onclick="voltarParaDashboard()">Voltar</button>
+        <button class="voltar" onclick="irParaEspera()">Visualizar próximos lotes</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------------
+espera.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fila de espera para produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+
+        .caixa-texto {
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Fila de espera para produção</h2>
+        <div class="container-texto">
+            <div class="numero">1.</div>
+            <div class="caixa-texto">
+                <p>15 BOCAL DUPLO PARA TOYOTA COROLLA CROSS</p>
+            </div>
+            <div class="numero">2.</div>
+            <div class="caixa-texto">
+                <p>20 BOCAL ÚNICO POLIDA PARA HONDA NEW CITY SEDAN</p>
+            </div>
+        </div>
+
+        <button class="voltar" onclick="irParaLinha()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+historico.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fila de espera para produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+
+        .caixa-texto {
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .linha-em-branco {
+            height: 20px; /* Defina a altura desejada para a linha em branco */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Fila de espera para produção</h2>
+        <div class="container-texto">
+            <div class="numero">Data: 14/11</div>
+            <div class="numero">Horario de produção: 17:27 até 19:43</div>
+            <div class="numero">Ordem dada por: Hélio</div>
+            <div class="caixa-texto">
+                <p>15 BOCAL DUPLO PARA TOYOTA COROLLA CROSS</p>
+            </div>
+            <div class="numero">__________________________________________________________</div>
+            <div class="linha-em-branco"></div>
+            <div class="numero">Data: 14/11</div>
+            <div class="numero">Horario de produção: 15:32 até 17:27</div>
+            <div class="numero">Ordem dada por: Hélio</div>
+            <div class="caixa-texto">
+                <p>20 BOCAL ÚNICO POLIDA PARA HONDA NEW CITY SEDAN</p>
+        </div>
+
+        <button class="voltar" onclick="voltarParaDashboard()">Voltar</button>
+        <button class="voltar" onclick="historicoTotal()">Vizualizar dias anteriores</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+historico2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">EM MANUTENÇÃO</h2>
+        <!-- Conteúdo específico da linha de produção pode ser adicionado aqui -->
+        <img src="MANUTENCAO.webp" alt="manutencao" style="width: 100%; height: auto;">
+
+        <button class="voltar" onclick="historico()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+estatistica.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Estatisiticas</h2>
+        <p>Selecione qual estatisica você quer acessar</p>
+
+        
+        <button class="voltar" onclick="estatisticafuc()">Estatisticas de funcionarios</button>
+        <button class="voltar" onclick="estatisticaset()">Estatisticas de setores</button>
+        <button class="voltar" onclick="estatisticageral()">Estatisticas Gerais</button>
+        <button class="voltar" onclick="voltarParaDashboard()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+estatisiticafuc.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Linha de Produção</h2>
+        <p>Adicione aqui o conteúdo da linha de produção.</p>
+        
+        <button class="voltar" onclick="estatistica()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+estatisticaset.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Linha de Produção</h2>
+        <!-- Conteúdo específico da linha de produção pode ser adicionado aqui -->
+        <p>Adicione aqui o conteúdo da linha de produção.</p>
+
+        <button class="voltar" onclick="estatistica()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+estatisticageral.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0f3460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .linha-container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #1a1a2e;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        button.voltar {
+            background-color: #0f3460;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button.voltar:hover {
+            background-color: #0c2c4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Linha de Produção</h2>
+        <!-- Conteúdo específico da linha de produção pode ser adicionado aqui -->
+        <p>Adicione aqui o conteúdo da linha de produção.</p>
+
+        <button class="voltar" onclick="estatistica()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------
+style.css
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #0f3460;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input, select {
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+button {
+    background-color: #e94560;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #d81c3f;
+}
+
+/* Estilo para o dashboard */
+body.dashboard {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: #0f3460;
+    width: 25%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav li {
+    margin-bottom: 30px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 25px;
+    display: block;
+}
+
+.sidebar nav a:hover {
+    border-bottom: 2px solid #e94560;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #000000;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+----------------------------------------------------------------------------------------
+script.js
+
+function login() {
+    var userType = document.getElementById("userType").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Verifica as credenciais com base no tipo de usuário
+    if (userType === "funcionario" && username === "gabriel@soamer.com" && password === "123456") {
+        window.location.href = "dashboard_funcionario.html";
+    } else if (userType === "gestor" && username === "helio@soamer.com" && password === "123456") {
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Credenciais inválidas. Tente novamente.");
+    }
+}
+
+// Adiciona a lógica para o botão "Sair"
+document.addEventListener("DOMContentLoaded", function () {
+    var logoutLinks = document.querySelectorAll('.logout');
+
+    logoutLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            window.location.href = "index.html"; // redireciona para a tela de login
+        });
+    });
+});
+
+function voltarParaDashboard() {
+    window.location.href = "dashboard.html"; // ou o caminho correto para a página do dashboard
+}
+
+function abrirOrdemPage() {
+    window.location.href = "Ordem.html";
+}
+
+function confirmarOrdem() {
+    // Lógica para confirmar a ordem, se necessário
+    alert("Ordem confirmada!");
+    
+    // Redireciona para a tela do dashboard após confirmar a ordem
+    window.location.href = "dashboard.html";
+}
+
+function irParaEspera() {
+    window.location.href = "espera.html";
+}
+
+function irParaLinha() {
+    window.location.href = "linha_de_producao.html"
+}
+
+function historicoTotal() {
+    window.location.href = "historico2.html"
+}
+
+function historico() {
+    window.location.href = "historico.html"
+}
+
+function estatistica() {
+    window.location.href = "estatistica.html"
+}
+
+function estatisticafuc() {
+    window.location.href = "estatisticafuc.html"
+}
+
+function estatisticaset() {
+    window.location.href = "estatisticaset.html"
+}
+
+function estatisticageral() {
+    window.location.href = "estatisticageral.html"
+}
+
+
+
+
+----------------------------------------------------------------------------------------
+
+DESING DE ABAS:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Linha de Produção</title>      
+</head>
+
+<body>
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Linha de Produção</h2>
+        <p>Adicione aqui o conteúdo da linha de produção.</p>
+
+        <button class="voltar" onclick="estatistica()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nova Página</title>
+</head>
+
+<body>
+    
+    <script>
+        function changeImage() {
+    var selectedSector = document.getElementById("sectorSelector").value;
+    var imageElement = document.getElementById("sectorImage");
+
+    switch (selectedSector) {
+        case "furacao":
+            imageElement.src = "camila1.jpg";
+            break;
+        case "corte":
+            imageElement.src = "mateus1.jpg";
+            break;
+        case "polimento":
+            imageElement.src = "gabriel1.jpg";
+            break;
+        case "limpeza":
+            imageElement.src = "solon1.jpg";
+            break;
+        case "solda":
+            imageElement.src = "carlos1.jpg";
+            break;
+        case "embalagem":
+            imageElement.src = "davi1.jpg";
+            break;
+        default:
+            imageElement.src = "gabriel1.jpg";
+            break;
+    }
+}
+    </script>
+
+    <div class="linha-container">
+        <h2 style="margin-bottom: 20px;">Estatisticas de setores</h2>
+        
+        <label for="sectorSelector">Estatísticas de:</label>
+        <select id="sectorSelector" name="sectorSelector" onchange="changeImage()">
+            <option value="furacao">Furação</option>
+            <option value="corte">Corte</option>
+            <option value="polimento">Polimento</option>
+            <option value="limpeza">Limpeza</option>
+            <option value="solda">Solda</option>
+            <option value="embalagem">Embalagem</option>
+        </select>
+
+        <img id="sectorImage" src="" alt="" style="width: 100%; height: auto;">
+        
+        <button class="voltar" onclick="estatistica()">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

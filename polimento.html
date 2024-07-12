@@ -1,0 +1,28 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Polimento</title>
+</head>
+<body>
+    <div class="ordem-container">
+        <h2 style="margin-bottom: 20px;">Polimento</h2>
+        <label for="funcao">Qual área do polimento você irá atuar:</label>
+        <select id="funcao" name="funcao" style="width: 200px;">
+            <option value="seleciona_poli1">Remoção Solda</option>
+            <option value="seleciona_poli2">Preparação Interna Rebarba</option>
+            <option value="seleciona_poli3">Preparação externa</option>
+        </select>
+
+        <button class="button" onclick="confirmarEscolha()">Confirmar</button>
+        
+
+        <button class="voltar" onclick="dashboard()">Voltar</button>
+        <button class="voltar" onclick="funcao()">Sair dessa Função</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
